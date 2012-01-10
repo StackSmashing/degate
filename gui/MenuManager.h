@@ -104,6 +104,7 @@ class MenuManager {
   void setup_menu_structure();
   void set_toolbar_images();
 
+  void set_tooltip_for_toolbar_widget(Glib::ustring toolbar_widget_path, Glib::ustring tooltip);
   void set_image_for_toolbar_widget(Glib::ustring toolbar_widget_path, Glib::ustring image_file_name);
 
   void set_toolbar_item_sensitivity(const Glib::ustring& widget_path, bool state);

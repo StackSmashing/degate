@@ -611,10 +611,25 @@ void MenuManager::set_toolbar_images() {
   set_image_for_toolbar_widget("/ToolBar/LogicShowAnnotations", "annotations.png");
   set_image_for_toolbar_widget("/ToolBar/LogicShowModules", "modules.png");
   set_image_for_toolbar_widget("/ToolBar/LogicRC", "drc.png");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolSelect", "Select");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolMove", "Move");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolWire", "Wire");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolViaUp", "Via Up");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolViaDown", "Via Down");
+  set_tooltip_for_toolbar_widget("/ToolBar/GateList", "Gate List");
+  set_tooltip_for_toolbar_widget("/ToolBar/LogicConnectionInspector", "Connection Inspector");
+  set_tooltip_for_toolbar_widget("/ToolBar/LogicShowAnnotations", "Annotations");
+  set_tooltip_for_toolbar_widget("/ToolBar/LogicShowModules", "Show Modules");
+  set_tooltip_for_toolbar_widget("/ToolBar/LogicRC", "RC");
 }
 
-
-
+void MenuManager::set_tooltip_for_toolbar_widget(Glib::ustring toolbar_widget_path,
+					       Glib::ustring tooltip) {
+  Gtk::ToolButton* pToolbarItem;
+  pToolbarItem = dynamic_cast<Gtk::ToolButton*>(m_refUIManager->get_widget(toolbar_widget_path));
+  if(pToolbarItem == NULL) return;
+  pToolbarItem->set_tooltip_text(tooltip);
+}
 
 void MenuManager::set_image_for_toolbar_widget(Glib::ustring toolbar_widget_path,
 					       Glib::ustring image_file_name) {
