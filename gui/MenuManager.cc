@@ -242,19 +242,19 @@ void MenuManager::create_and_bind_tools_menu() {
   Gtk::RadioAction::Group group_tools;
 
   m_refChoice_Select = Gtk::RadioAction::create(group_tools, "ToolSelect", "Select");
-  m_refActionGroup->add(m_refChoice_Select, sigc::mem_fun(*window, &MainWin::on_menu_tools_select) );
+  m_refActionGroup->add(m_refChoice_Select, Gtk::AccelKey("1"), sigc::mem_fun(*window, &MainWin::on_menu_tools_select) );
 
   m_refChoice_Move = Gtk::RadioAction::create(group_tools, "ToolMove", "Move");
-  m_refActionGroup->add(m_refChoice_Move, sigc::mem_fun(*window, &MainWin::on_menu_tools_move) );
+  m_refActionGroup->add(m_refChoice_Move, Gtk::AccelKey("2"), sigc::mem_fun(*window, &MainWin::on_menu_tools_move) );
 
   m_refChoice_Wire = Gtk::RadioAction::create(group_tools, "ToolWire", "Wire");
-  m_refActionGroup->add(m_refChoice_Wire, sigc::mem_fun(*window, &MainWin::on_menu_tools_wire) );
+  m_refActionGroup->add(m_refChoice_Wire, Gtk::AccelKey("3"), sigc::mem_fun(*window, &MainWin::on_menu_tools_wire) );
 
   m_refChoice_via_up = Gtk::RadioAction::create(group_tools, "ToolViaUp", "Via up");
-  m_refActionGroup->add(m_refChoice_via_up, sigc::mem_fun(*window, &MainWin::on_menu_tools_via_up) );
+  m_refActionGroup->add(m_refChoice_via_up, Gtk::AccelKey("4"), sigc::mem_fun(*window, &MainWin::on_menu_tools_via_up) );
 
   m_refChoice_via_down = Gtk::RadioAction::create(group_tools, "ToolViaDown", "Via down");
-  m_refActionGroup->add(m_refChoice_via_down, sigc::mem_fun(*window, &MainWin::on_menu_tools_via_down) );
+  m_refActionGroup->add(m_refChoice_via_down, Gtk::AccelKey("5"), sigc::mem_fun(*window, &MainWin::on_menu_tools_via_down) );
 }
 
 void MenuManager::create_and_bind_layer_menu() {
@@ -611,16 +611,16 @@ void MenuManager::set_toolbar_images() {
   set_image_for_toolbar_widget("/ToolBar/LogicShowAnnotations", "annotations.png");
   set_image_for_toolbar_widget("/ToolBar/LogicShowModules", "modules.png");
   set_image_for_toolbar_widget("/ToolBar/LogicRC", "drc.png");
-  set_tooltip_for_toolbar_widget("/ToolBar/ToolSelect", "Select");
-  set_tooltip_for_toolbar_widget("/ToolBar/ToolMove", "Move");
-  set_tooltip_for_toolbar_widget("/ToolBar/ToolWire", "Wire");
-  set_tooltip_for_toolbar_widget("/ToolBar/ToolViaUp", "Via Up");
-  set_tooltip_for_toolbar_widget("/ToolBar/ToolViaDown", "Via Down");
-  set_tooltip_for_toolbar_widget("/ToolBar/GateList", "Gate List");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolSelect", "Select (1)");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolMove", "Move (2)");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolWire", "Wire (3)");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolViaUp", "Via Up (4)");
+  set_tooltip_for_toolbar_widget("/ToolBar/ToolViaDown", "Via Down (5)");
+  set_tooltip_for_toolbar_widget("/ToolBar/GateList", "Gate Library");
   set_tooltip_for_toolbar_widget("/ToolBar/LogicConnectionInspector", "Connection Inspector");
   set_tooltip_for_toolbar_widget("/ToolBar/LogicShowAnnotations", "Annotations");
   set_tooltip_for_toolbar_widget("/ToolBar/LogicShowModules", "Show Modules");
-  set_tooltip_for_toolbar_widget("/ToolBar/LogicRC", "RC");
+  set_tooltip_for_toolbar_widget("/ToolBar/LogicRC", "Rule Checks");
 }
 
 void MenuManager::set_tooltip_for_toolbar_widget(Glib::ustring toolbar_widget_path,
