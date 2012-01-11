@@ -527,15 +527,21 @@ unsigned int OpenGLRendererBase::FontRenderingHelper::create_font_textures(FT_Fa
       GLubyte v = (i>=bitmap.width || j>=bitmap.rows) ?
 	0 : bitmap.buffer[i + bitmap.width*j];
 
+#ifdef PRINT_FONT
       if(v == 0) printf(".. ");
       else printf("%02X ", v);
+#endif
 
       expanded_data[dst_offs] =  0; // XXX was 255;
       expanded_data[dst_offs + 1] = 255-v; //v > 128 ? 0 : 255; //255 - v;
     }
+#ifdef PRINT_FONT
     printf("\n");
+#endif
   }
+#ifdef PRINT_FONT
   printf("\n\n");
+#endif
 
   glBindTexture( GL_TEXTURE_2D, tex_base[(int)ch]);
   assert(opengl_error_check());
