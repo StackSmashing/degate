@@ -131,8 +131,8 @@ namespace degate {
 
       for(cache_t::const_iterator iter = cache.begin(); iter != cache.end(); ++iter) {
 	cache_entry_t const& entry = iter->second;
-	printf("%16p | %12ld.%12ld | %lu M (%lu bytes)\n",
-	       iter->first, entry.first.tv_sec, entry.first.tv_nsec, entry.second/(1024*1024), entry.second);
+	printf("%16p | %12ld.%12ld | %llu M (%llu bytes)\n",
+	       iter->first, entry.first.tv_sec, entry.first.tv_nsec, (long long unsigned)(entry.second/(1024*1024)), (long long unsigned)entry.second);
 	iter->first->print();
       }
 
